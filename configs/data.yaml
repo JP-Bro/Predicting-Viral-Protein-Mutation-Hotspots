@@ -1,0 +1,59 @@
+# data.yaml — dataset paths, sources, and processing parameters
+
+# --- Sequence sources ---
+sequences:
+  nextstrain_fasta: "data/raw/nextstrain_sequences.fasta.gz"
+  nextstrain_metadata: "data/raw/nextstrain_metadata.tsv.gz"
+  ncbi_zip: "data/raw/ncbi_sars2.zip"
+
+# --- Output paths ---
+interim:
+  aligned_msa: "data/interim/aligned.fasta"
+  cleaned_sequences: "data/interim/cleaned_sequences.fasta"
+  metadata_clean: "data/interim/metadata_clean.tsv"
+
+processed:
+  esm2_embeddings_dir: "data/processed/esm2_embeddings"
+  contact_graphs_dir: "data/processed/contact_graphs"
+  dms_escape: "data/processed/dms_escape.pt"
+  train_split: "data/processed/train.csv"
+  val_split: "data/processed/val.csv"
+  test_split: "data/processed/test.csv"
+
+# --- Reference ---
+reference:
+  wuhan_accession: "MN908947.3"
+  spike_aa_length: 1273
+  spike_length_tolerance: 5        # allow 1273 ± 5
+
+# --- Filtering ---
+filtering:
+  max_ambiguous_fraction: 0.05     # discard sequences with >5% X/gaps
+  subsample_n: 1500                # target: 1 seq per lineage-month bucket
+  spike_only: true
+
+# --- Temporal split ---
+temporal_split:
+  cutoff_date: "2023-12-31"        # train/val: before this; test: on/after
+  test_lineages:
+    - "JN.1"
+    - "KP.2"
+    - "KP.3"
+    - "XEC"
+
+# --- DMS source ---
+dms:
+  source_url: "https://github.com/jbloomlab/SARS2-RBD-escape-calc"
+  raw_dir: "data/raw/dms"
+  epitope_classes:
+    - "RBD_class1"
+    - "RBD_class2"
+    - "RBD_class3"
+    - "RBD_class4"
+    - "NTD_supersite"
+
+# --- Structure ---
+structure:
+  pdb_dir: "data/raw/pdb"
+  contact_threshold_angstrom: 10.0  # Cα–Cα distance cutoff for edges
+  reference_pdb: "6VXX"             # SARS-CoV-2 Spike trimer

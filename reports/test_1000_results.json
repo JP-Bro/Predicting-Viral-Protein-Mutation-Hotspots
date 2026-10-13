@@ -1,0 +1,78 @@
+{
+  "total_test_cases": 1000,
+  "non_constancy_verification": {
+    "p_mutate_std": 0.0131,
+    "p_mutate_range": [
+      0.0,
+      0.0494
+    ],
+    "p_mutate_passed": true,
+    "s_escape_std": 0.1143,
+    "s_escape_range": [
+      0.0,
+      0.2871
+    ],
+    "s_escape_passed": true,
+    "risk_score_std": 0.0038,
+    "output_collapse_detected": false
+  },
+  "prospective_accuracy_metrics": {
+    "spearman_rank_correlation_rho": 0.3415,
+    "mean_squared_error_mse": 0.0326,
+    "auroc_hotspot_classification": 0.7357,
+    "auprc_hotspot_classification": 0.0368,
+    "precision_at_10": 0.1
+  },
+  "top_10_predicted_high_risk_sites": [
+    {
+      "site": 497,
+      "risk_score": 0.0092,
+      "strain": "USA/LA-CDC-2-8366133/2025"
+    },
+    {
+      "site": 498,
+      "risk_score": 0.0092,
+      "strain": "USA/IVY-G25Z00X2/2025"
+    },
+    {
+      "site": 499,
+      "risk_score": 0.0092,
+      "strain": "USA/LA-CDC-2-8366133/2025"
+    },
+    {
+      "site": 500,
+      "risk_score": 0.0092,
+      "strain": "USA/IVY-G25Z00X2/2025"
+    },
+    {
+      "site": 501,
+      "risk_score": 0.0092,
+      "strain": "USA/LA-CDC-2-8366133/2025"
+    },
+    {
+      "site": 502,
+      "risk_score": 0.0092,
+      "strain": "USA/IVY-G25Z00X2/2025"
+    },
+    {
+      "site": 503,
+      "risk_score": 0.0092,
+      "strain": "USA/LA-CDC-2-8366133/2025"
+    },
+    {
+      "site": 504,
+      "risk_score": 0.0092,
+      "strain": "USA/IVY-G25Z00X2/2025"
+    },
+    {
+      "site": 505,
+      "risk_score": 0.0092,
+      "strain": "USA/LA-CDC-2-8366133/2025"
+    },
+    {
+      "site": 506,
+      "risk_score": 0.0092,
+      "strain": "USA/IVY-G25Z00X2/2025"
+    }
+  ]
+}

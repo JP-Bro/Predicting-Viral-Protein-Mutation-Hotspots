@@ -1,0 +1,26 @@
+# model.yaml — architecture hyperparameters
+
+sequence_encoder:
+  model_name: "esm2_t33_650M_UR50D"   # frozen, extracted once on Kaggle
+  output_dim: 1280                      # ESM-2 650M representation dim
+  repr_layer: 33
+  frozen: true
+
+structure_encoder:
+  type: "GVP-GNN"
+  num_layers: 3                         # 3–4 GVP-conv layers
+  node_scalar_dim: 10                   # SASA, sin/cos dihedrals, ss
+  node_vector_dim: 3                    # backbone orientation vectors
+  edge_scalar_dim: 2                    # distance + sequence separation
+  output_dim: 512
+
+fusion:
+  type: "cross_attention"
+  d_seq: 1280
+  d_struct: 512
+  d_model: 512
+  n_heads: 8
+
+heads:
+  hotspot_hidden: 128    # HotspotHead MLP hidden size
+  escape_hidden: 128     # EscapeHead MLP hidden size

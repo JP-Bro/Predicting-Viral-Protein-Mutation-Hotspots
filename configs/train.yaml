@@ -1,0 +1,32 @@
+# train.yaml — training loop hyperparameters
+
+training:
+  epochs: 5
+  batch_size: 16                 # batch size for GPU
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+  grad_clip_norm: 1.0
+  mixed_precision: true
+
+loss:
+  lambda_hotspot: 1.0            # weight for BCE (hotspot) loss
+  lambda_escape: 1.0             # weight for MSE (escape) loss
+
+early_stopping:
+  monitor: "val_spearman_rho"
+  patience: 5
+  mode: "max"
+
+checkpointing:
+  save_dir: "checkpoints/"
+  save_every_n_epochs: 1
+  save_best_auroc: true
+  save_best_spearman: true
+
+logging:
+  wandb_project: "viral-escape-predictor"
+  wandb_entity: null
+  log_every_n_steps: 10
+  log_loss_components: true
+
+seed: 42
